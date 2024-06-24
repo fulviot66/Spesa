@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th=http://www.thymeleaf.org>
+	<head>
+		<title>Lista Spesa</title>
+		<meta charset = "UTF-8">
+		<meta name = "viewport" content = "width=device-width, initial-scale = 1.0">		
+			
+	</head>
+		<body>
+			<div>LISTA della SPESA</div>
+			<form action="#" method = "post" th:action="@{/}" th:object="${spesa}">
+				<fieldset>
+				<input type="text" th:field="*{articolo}" placeholder="Nuovo Articolo" />
+				<input type="checkbox" th:field="*{spunta}">Da comprare / Comprato</input>
+				<input type="submit" value="Salva" />
+				<a th:href="@{|/summary|}"> 
+         			<button type="button">Riepilogo</button> 
+    			</a>	
+			
+				<table border = "1">
+					<tr th:each="spesa : ${listaSpesa}">
+						<td th:text="${spesa.articolo}"></td>
+    					<td>	
+    						<span th:if="${spesa.spunta}">Comprato</span>
+    						<span th:unless="${spesa.spunta}"><b>Da comprare</b></span>
+						</td>
+						<td>
+							<a th:href="@{|/edit/${spesa.id}|}"> 
+         						<button type="button">Cambia</button> 
+    						</a>				
+						</td>	
+					</tr>	
+				</table>
+				</fieldset>
+			</form>
+		</body>
+</html>

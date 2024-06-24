@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th=http://www.thymeleaf.org>
+	<head>
+		<title>Lista della Spesa</title>
+		<meta charset = "UTF-8">
+		<meta name = "viewport" content = "width=device-width, initial-scale = 1.0">
+	</head>
+		<body>
+			<div>AGGIORNA Spesa</div>
+			<form action="#" method = "post" th:action="@{/edit}" th:object="${spesa}">
+				<input type="hidden" th:field="*{id}" />
+				<input type="text" th:field="*{articolo}" />
+				<input type="checkbox" th:field="*{spunta}" />
+				<input type="submit" value="Salva" />	
+			</form>
+		</body>
+</html>
+	

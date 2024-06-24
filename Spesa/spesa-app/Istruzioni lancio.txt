@@ -1,0 +1,21 @@
+Creazione Container e volume MySQL:
+docker run --name spesa-mysql -p 3308:3306 -e MYSQL_ROOT_PASSWORD=Fufi202? -v mysql-data:/var/lib/mysql -d mysql:8.0
+mysql -u root -p
+show databases;
+create database listaspesa;
+use listaspesa;
+CREATE TABLE `listaspesa`.`listaspesa` (`id` INT NOT NULL AUTO_INCREMENT , `articolo` VARCHAR(50) NOT NULL , `spunta` BOOLEAN NOT NULL , `corsia` INT NULL , `scaffale` INT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB COMMENT = 'Elenco alfabetico articoli';
+status;
+show databases;
+exit
+cd /var/lib/mysql
+ls
+
+Creazione file .jar:
+mvn clean package
+
+Lancio applicazione:
+C:\Users\Fulvio\eclipse-workspace\Spesa\spesa-app>java -jar target/Spesa-0.0.1-SNAPSHOT.jar
+
+Collaudo applicazione:
+localhost:8088

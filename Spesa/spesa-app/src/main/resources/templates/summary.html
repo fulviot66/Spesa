@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th=http://www.thymeleaf.org>
+	<head>
+		<title>Lista Spesa</title>
+		<meta charset = "UTF-8">
+		<meta name = "viewport" content = "width=device-width, initial-scale = 1.0">		
+			
+	</head>
+		<body>
+			<div>Riepilogo della SPESA</div>
+			<a href="mailto:fulviotarable@hotmail.com?subject=Lista Spesa">
+				<button type="button">Invia email</button>
+			</a>
+					<table border = "1">
+					<tr>
+						
+						<td><b>Articolo</b></td>
+						<td><b>Stato</b></td>
+						<td><b>Corsia</b></td>
+						<td><b>Scaffale</b></td>
+						
+						
+					</tr> 	
+					<tr th:each="spesa : ${spesaDaFare}">
+						<td th:text="${spesa.articolo}"></td>
+    					<td>	
+    						<span th:if="${spesa.spunta}"></span>
+    						<span th:unless="${spesa.spunta}"><b>Da comprare</b></span>
+						</td>
+						<td></td>
+						<td></td>
+							
+					</tr>	
+				</table>
+				</fieldset>
+			</form>
+		</body>
+</html>
